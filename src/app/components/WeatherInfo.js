@@ -5,7 +5,7 @@ const WeatherInfo = props => {
         <>
             {
                 props.error &&
-                <div className="alert alert-danger">
+                <div className="alert alert-danger mt-1">
                     <p>
                         { props.error }
                     </p>
@@ -13,21 +13,22 @@ const WeatherInfo = props => {
             }
             {
                 props.temperature && !props.error?
-                <div className="card card-body">
+                <div className="card card-body mt-1">
                     <p>
-                        Location: { props.city }, { props.country }
+                        <b>Location</b>: <i>{ props.city }, { props.country }</i>
                     </p>
                     <p>
-                        Description: { props.description }
+                        <b>Description: </b><i>{ props.description }</i>
+                    </p>                     
+                    <p>
+                        <b>Temperature: </b><i>{ props.temperature } {props.temperatureUnits}</i><b> & Feels like: </b>
+                        <i>{ props.feelsLike } {props.temperatureUnits}</i>
                     </p>
                     <p>
-                        Temperature: { props.temperature }°C & Feels like: { props.feelsLike }°C
+                        <b>Wind Speed: </b><i>{ props.windSpeed } {props.speedUnits}</i>
                     </p>
                     <p>
-                        Wind Speed: { props.windSpeed } Km/h
-                    </p>
-                    <p>
-                        Humidity: { props.humidity }%
+                        <b>Humidity: </b><i>{ props.humidity }%</i>
                     </p>
                 </div>
                 :

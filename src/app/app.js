@@ -13,34 +13,57 @@ class App extends Component{
         windSpeed : "",
         city : "",
         country : "",
+        temperatureUnits:"",
+        speedUnits:"",
         error : null
     }
-
     getWeather = async e =>{
         e.preventDefault();
         const {city, country} = e.target.elements;
         const cityValue = city.value;
         const countryValue = country.value;
-//aquí podemos separar la url para manipular más comodamente las variables ;)
-        const OpenWeatherAPI_URL = `http://api.openweathermap.org/data/2.5/weather?q=${cityValue},${countryValue}&appid=${OPENWEATHER_API_KEY}&units=metric`
-
+        const units = "imperial";
+        const URLVars = `q=${cityValue},${countryValue}&appid=${OPENWEATHER_API_KEY}&units=${units}`
+        const OpenWeatherAPI_URL = `http://api.openweathermap.org/data/2.5/weather?`+ URLVars;
+        
         if(countryValue && cityValue){
-        const response = await fetch(OpenWeatherAPI_URL);
+            var response = await fetch(OpenWeatherAPI_URL);
+            if (response.status == 404){
+                this.setState ({ error: "Please type valid cities and countries."})
+            }
+
         const data = await response.json();
         const descriptionUpperCase = data.weather[0].description.replace(/\b\w/g, function(l){ return l.toUpperCase() })
-
-        this.setState({
-            temperature: data.main.temp,
-            feelsLike: data.main.feels_like,
-            description : descriptionUpperCase,
-            humidity : data.main.humidity,
-            windSpeed : data.wind.speed,
-            city : data.name,
-            country : data.sys.country,
-            error : null
-        });
+        
+        if (units == "metric"){
+            this.setState({
+                temperature: data.main.temp,
+                feelsLike: data.main.feels_like,
+                description : descriptionUpperCase,
+                humidity : data.main.humidity,
+                windSpeed : data.wind.speed,
+                city : data.name,
+                country : data.sys.country,
+                temperatureUnits:"C°",
+                speedUnits:"km/h",
+                error : null
+            })
         } else {
-            this.setState({error: "Please Enter a City and a Country"})
+            this.setState({
+                temperature: data.main.temp,
+                feelsLike: data.main.feels_like,
+                description : descriptionUpperCase,
+                humidity : data.main.humidity,
+                windSpeed : data.wind.speed,
+                city : data.name,
+                country : data.sys.country,
+                temperatureUnits:"F°",
+                speedUnits:"mph",
+                error : null
+            })
+        }
+    } else {
+         this.setState({error: "Please Enter a City and a Country"})
         }
     }
 
