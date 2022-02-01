@@ -22,10 +22,9 @@ class App extends Component{
         const {city, country} = e.target.elements;
         const cityValue = city.value;
         const countryValue = country.value;
-        const units = "imperial";
+        const units = e.target.elements.btnradio.value;
         const URLVars = `q=${cityValue},${countryValue}&appid=${OPENWEATHER_API_KEY}&units=${units}`
         const OpenWeatherAPI_URL = `http://api.openweathermap.org/data/2.5/weather?`+ URLVars;
-        
         if(countryValue && cityValue){
             var response = await fetch(OpenWeatherAPI_URL);
             if (response.status == 404){
@@ -48,7 +47,7 @@ class App extends Component{
                 speedUnits:"km/h",
                 error : null
             })
-        } else {
+        } else if(units == "imperial"){
             this.setState({
                 temperature: data.main.temp,
                 feelsLike: data.main.feels_like,
@@ -61,6 +60,8 @@ class App extends Component{
                 speedUnits:"mph",
                 error : null
             })
+        } else {
+            this.setState({error: "Please Select a Unit"})
         }
     } else {
          this.setState({error: "Please Enter a City and a Country"})
