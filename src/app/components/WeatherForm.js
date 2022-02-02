@@ -23,6 +23,8 @@ const WeatherForm = props => {
                 <label className="btn btn-outline-primary" htmlFor="btnradio1"><b>C°</b></label>
                 <input type="radio" className="btn-check" name="btnradio" id="btnradio2" autoComplete="off" value={"imperial"}/>
                 <label className="btn btn-outline-primary" htmlFor="btnradio2"><b>F°</b></label>
+                <input type="radio" className="btn-check" name="btnradio" id="btnradio3" autoComplete="off" value={"standard"}/>
+                <label className="btn btn-outline-primary" htmlFor="btnradio3"><b>K°</b></label>
             </div>
             <button className= "btn btn-success btn-lg w-100 mt-2">
                 Get Weather

@@ -60,6 +60,19 @@ class App extends Component{
                 speedUnits:"mph",
                 error : null
             })
+        } else if(units == "standard"){
+            this.setState({
+                temperature: data.main.temp,
+                feelsLike: data.main.feels_like,
+                description : descriptionUpperCase,
+                humidity : data.main.humidity,
+                windSpeed : data.wind.speed,
+                city : data.name,
+                country : data.sys.country,
+                temperatureUnits:"K°",
+                speedUnits:"km/h",
+                error : null
+            })
         } else {
             this.setState({error: "Please Select a Unit"})
         }
