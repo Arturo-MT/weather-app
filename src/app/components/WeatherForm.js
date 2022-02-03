@@ -19,12 +19,13 @@ const WeatherForm = props => {
                 className= "form-control mt-1" autoComplete="off"/>
             </div>
             <div className="btn-group mt-1" id="unitSelector" role="group" aria-label="Basic radio toggle button group" onChange={onChangeValue} >
+                <p>Units:</p>
                 <input type="radio" className="btn-check" name="btnradio" id="btnradio1" autoComplete="off" value={"metric"}/>
-                <label className="btn btn-outline-primary" htmlFor="btnradio1"><b>C°</b></label>
+                <label className="btn btn-outline-ligth" htmlFor="btnradio1"><b>C°</b></label>
                 <input type="radio" className="btn-check" name="btnradio" id="btnradio2" autoComplete="off" value={"imperial"}/>
-                <label className="btn btn-outline-primary" htmlFor="btnradio2"><b>F°</b></label>
+                <label className="btn btn-outline-ligth" htmlFor="btnradio2"><b>F°</b></label>
                 <input type="radio" className="btn-check" name="btnradio" id="btnradio3" autoComplete="off" value={"standard"}/>
-                <label className="btn btn-outline-primary" htmlFor="btnradio3"><b>K°</b></label>
+                <label className="btn btn-outline-ligth" htmlFor="btnradio3"><b>K°</b></label>
             </div>
             <button className= "btn btn-success btn-lg w-100 mt-2">
                 Get Weather
