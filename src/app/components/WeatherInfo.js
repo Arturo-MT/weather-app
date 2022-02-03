@@ -1,6 +1,8 @@
 import React from "react";
 
 const WeatherInfo = props => {
+    console.log(props.icon)
+    const src="http://openweathermap.org/img/wn/" + props.icon + "@2x.png"
     return (
         <>
             {
@@ -13,7 +15,8 @@ const WeatherInfo = props => {
             }
             {
                 props.temperature && !props.error?
-                <div className="card card-body mt-1">
+                <div className="card card-body mt-1 pt-1">
+                    <img className="mx-auto" src= {src}/>
                     <p>
                         <b>Location</b>: <i>{ props.city }, { props.country }</i>
                     </p>

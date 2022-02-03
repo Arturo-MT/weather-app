@@ -15,6 +15,7 @@ class App extends Component{
         country : "",
         temperatureUnits:"",
         speedUnits:"",
+        icon: "",
         error : null
     }
     getWeather = async e =>{
@@ -45,6 +46,7 @@ class App extends Component{
                 country : data.sys.country,
                 temperatureUnits:"C°",
                 speedUnits:"km/h",
+                icon: data.weather[0].icon,
                 error : null
             })
         } else if(units == "imperial"){
@@ -58,6 +60,7 @@ class App extends Component{
                 country : data.sys.country,
                 temperatureUnits:"F°",
                 speedUnits:"mph",
+                icon: data.weather[0].icon,
                 error : null
             })
         } else if(units == "standard"){
@@ -71,6 +74,7 @@ class App extends Component{
                 country : data.sys.country,
                 temperatureUnits:"K°",
                 speedUnits:"km/h",
+                icon: data.weather[0].icon,
                 error : null
             })
         } else {
@@ -83,9 +87,9 @@ class App extends Component{
 
     render(){
         return(
-            <div className="container p-4">
+            <div className="container p-1">
                 <div className="row">
-                    <div className="col-md-4 mx-auto">
+                    <div className="col-md-6 mx-auto">
                         <WeatherForm getWeather = {this.getWeather}/>
                         <WeatherInfo { ...this.state}/>
                     </div>
