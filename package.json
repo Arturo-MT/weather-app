@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "homepage":"https://Arturo-MT.github.io/weather-app",
   "scripts": {
+    "predeploy":"npm run build",
+    "deploy":"gh-pages -d build",
     "build": "cross-env NODE_ENV=production webpack",
     "start": "webpack-dev-server --open",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,6 +17,7 @@
   "dependencies": {
     "axios": "^0.25.0",
     "cross-env": "^7.0.3",
+    "gh-pages": "^3.2.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
