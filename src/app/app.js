@@ -25,7 +25,7 @@ class App extends Component{
         const countryValue = country.value;
         const units = e.target.elements.btnradio.value;
         const URLVars = `q=${cityValue},${countryValue}&appid=${OPENWEATHER_API_KEY}&units=${units}`
-        const OpenWeatherAPI_URL = `http://api.openweathermap.org/data/2.5/weather?`+ URLVars;
+        const OpenWeatherAPI_URL = `https://api.openweathermap.org/data/2.5/weather?`+ URLVars;
         if(countryValue && cityValue){
             var response = await fetch(OpenWeatherAPI_URL);
             if (response.status == 404){
