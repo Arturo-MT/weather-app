@@ -18,7 +18,7 @@ const WeatherForm = props => {
                 <input type= "text" name= "country" placeholder= "Your Country Name" 
                 className= "form-control mt-1" autoComplete="off"/>
             </div>
-            <div className="btn-group mt-1" id="unitSelector" role="group" aria-label="Basic radio toggle button group" onChange={onChangeValue} >
+            <div className="btn-group mt-1 mx-auto" id="unitSelector" role="group" aria-label="Basic radio toggle button group" onChange={onChangeValue} >
                 <p>Units: </p>
                 <input type="radio" className="btn-check" name="btnradio" id="btnradio1" autoComplete="off" value={"metric"}/>
                 <label className="btn btn-outline-ligth" htmlFor="btnradio1"><b>C°</b></label>
